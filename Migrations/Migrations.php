@@ -1,9 +1,12 @@
 <?php
 
+namespace Migrations;
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $dotenv=Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
+
 
 
 class Database{
@@ -19,7 +22,6 @@ class Database{
     $host = $_ENV['DB_HOST'];
     $user = $_ENV['DB_USER'];
     $password = $_ENV['DB_PASSWORD'];
-    $dbname = $_ENV['DB_NAME'];
 
     try{
       $this->pdo = new PDO("mysql:host=$host", $user, $password);

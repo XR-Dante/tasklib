@@ -1,3 +1,7 @@
 <?php
 
-require 'Styles/form.php';
+declare(strict_types=1);
+
+require "vendor/autoload.php";
+
+require_once "Route.php";
