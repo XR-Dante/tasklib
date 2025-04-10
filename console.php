@@ -28,7 +28,7 @@ $argumentMissingError = function(string $command) use ($commands) {
 };
 
 match($command) {
-  'migrate' => \Core\Database\Migration::migrate(__DIR__),
+  'migrate:migrate' => \Core\Database\Migration::migrate(__DIR__),
   default => $argumentMissingError($command)
 };
 
