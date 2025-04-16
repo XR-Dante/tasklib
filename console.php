@@ -17,6 +17,7 @@ if(!isset($argv[1])){
 }
 
 $command = $argv[1];
+$tableName = $argv[2];
 
 $argumentMissingError = function(string $command) use ($commands) {
   if(!in_array($command, $commands)){
@@ -28,7 +29,8 @@ $argumentMissingError = function(string $command) use ($commands) {
 };
 
 match($command) {
-  'migrate:migrate' => \Core\Database\Migration::migrate(__DIR__),
+/* 'migrate:migrate' => \Core\Database\Migration::migrate(__DIR__), */
+$commands[0] => \Core\Database\Migration::addMigration($tableName), 
   default => $argumentMissingError($command)
 };
 

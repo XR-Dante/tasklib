@@ -32,4 +32,14 @@ class Migration {
   public function migrateServiceTables($root){
     $this->migrate($root, true);
   }
+
+  public static function addMigration($tableName){
+    date_default_timezone_set(timezoneId: 'Asia/Tashkent');
+    $currentDate = date(format: 'Y_m_d_H_i_s_');
+    $fileName = $currentDate . $tableName . '.php';
+    $filePath = __DIR__ . '/../..' . self::FOLDER . '/' . $fileName;
+    file_put_contents($filePath, data:'<?php');
+    print_r($fileName);
+
+  }
 }
